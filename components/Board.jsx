@@ -27,11 +27,9 @@ const Board = () => {
               ref={provided.innerRef}
               {...provided.droppableProps}
               className={`w-full  px-5 flex items-start  pt-4 overflow-x-auto gap-10  absolute top-14 bottom-0 left-0 right-0
-             ${
-               context.backgroundColor ? `bg-[${context.backgroundColor}]` : ""
-             }   ${
+             ${context.backgroundColor ? `${context.backgroundColor}` : ""}   ${
                 context.backgroundColor
-                  ? `dark:bg-[${context.backgroundColor}]`
+                  ? `${context.backgroundColor}`
                   : "dark:bg-[#121212]"
               }   `}
             >
