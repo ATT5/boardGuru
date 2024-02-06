@@ -3,13 +3,26 @@ import { useContext, useState } from "react";
 import Image from "next/image";
 import { personIcon } from "@/assets";
 
-const colors = ["#f07e3a", "#cd5a91", "#2592d2", "#45a99d"];
+const colors = [
+  "bg-customOrange",
+  "bg-customPink",
+  "bg-customBlue",
+  "bg-customGreen",
+];
 
 const Menu = () => {
   const context = useContext(BoardContext);
   const members = context.state.members;
   const [assignTask, setAssignTask] = useState(true);
   const [member, setMember] = useState("");
+
+  const BoxColor = (color) => (
+    <div
+      style={{ backgroundColor: `${color}` }}
+      className={`w-9 h-9 rounded-sm bg-[${color}]  cursor-pointer border-[1px] border-black text-center`}
+      onClick={() => context.setBackgroundColor(color)}
+    />
+  );
 
   return (
     <>
@@ -32,13 +45,11 @@ const Menu = () => {
       </p>
       <div className=" flex gap-2  pb-3 border-b-[1px]">
         {colors.map((color) => (
-          <div
+          <button
             key={color}
-            className={`w-9 h-9 rounded-sm bg-[${color}]  cursor-pointer border-[1px] border-black text-center`}
+            className={`w-9 h-9 rounded-sm ${color}  cursor-pointer border-[1px] border-black text-center`}
             onClick={() => context.setBackgroundColor(color)}
-          >
-            {color === null && <p>N/A</p>}
-          </div>
+          ></button>
         ))}
       </div>
       <p className="mt-4 mb-2 font-bold">Members</p>
