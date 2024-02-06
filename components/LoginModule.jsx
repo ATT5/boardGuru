@@ -53,7 +53,7 @@ const LoginModule = ({ showLogin }) => {
     }
 
     context.setUser(res.data.user);
-    router.refresh();
+   
     showLogin(false);
     setInfoLog("Welcome");
 
